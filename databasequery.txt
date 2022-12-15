@@ -1,0 +1,81 @@
+create table user(
+id int(11) PRIMARY KEY AUTO_INCREMENT,
+nama_user varchar(100),
+email_user varchar(100),
+username varchar(100),
+password varchar(100),
+create_at datetime,
+update_at datetime
+);
+
+create table penjualan(
+id int(11) PRIMARY KEY AUTO_INCREMENT,
+no_faktur varchar(100),
+tanggal date,
+konsumenid double(20,0),
+total_potongan double(20,0),
+total_transaksi double(20,0),
+total_bayar double(20,0),
+bayarid int(11),
+create_at datetime,
+update_at datetime,
+user_id int(11)
+);
+
+create table penjualan_item(
+id int(11) PRIMARY KEY AUTO_INCREMENT,
+penjualanid int(11),
+produkid int(11),
+jumlah_jual double(20,0),
+harga_jual double(20,0),
+potongan double(20,0),
+create_at datetime,
+update_at datetime,
+user_id int(11) 
+);
+
+create table produk(
+id int(11) PRIMARY KEY AUTO_INCREMENT,
+barcode varchar(100),
+nama_produk varchar(100),
+deskripsi_produk  varchar(100),
+harga_beli double(20,0),
+harga_jual double(20,0),
+foto varchar(100),
+create_at datetime,
+update_at datetime,
+userid int(11) 
+);
+
+create table penjualan_bayar(
+id int(11) PRIMARY KEY AUTO_INCREMENT,
+penjualanid int(11),
+rekeningid int(11),
+tanggal_bayar date,
+jumlah_bayar double(20,0), 
+create_at datetime,
+update_at datetime,
+userid int(11) 
+);
+
+
+create table konsumen(
+id int(11) PRIMARY KEY AUTO_INCREMENT,
+nama_konsumen varchar(100),
+alamat_konsumen varchar(100),
+email_konsumen varchar(100),
+no_hp_konsumen varchar(100),
+create_at datetime,
+update_at datetime,
+userid int(11) 
+);
+
+create table rekening(
+id int(11) PRIMARY KEY AUTO_INCREMENT,
+nama_rekening varchar(100),
+keterangan_rekening varchar(100),
+type_rekening int(2),
+create_at datetime,
+update_at datetime,
+userid int(11) 
+);

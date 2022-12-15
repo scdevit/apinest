@@ -13,6 +13,7 @@ export class UserService {
    ){}
 
   create(createUserDto: CreateUserDto) {
+    createUserDto.password = this.hash(createUserDto.password)
     return this.userRepo.save(createUserDto);
   }
 

@@ -26,4 +26,5 @@ export class CreateUserDto {
     @IsString()
     @MaxLength(200)
     nama_user : string
+  static password: string
 }
